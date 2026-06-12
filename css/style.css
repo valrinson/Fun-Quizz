@@ -16,8 +16,8 @@ body{
 /* LOGIN / REGISTER / QUIZ CONTAINER */
 
 .container{
-    width:500px;
-    max-width:90%;
+    width: 90%;
+    max-width:450px;
     background:white;
     padding:40px;
     border-radius:25px;
@@ -138,8 +138,8 @@ button:hover{
 /* RESULT PAGE */
 
 .result-card{
-    width:800px;
-    max-width:90%;
+    width:90%;
+    max-width:450%;
     background:white;
     padding:40px;
     border-radius:25px;
@@ -194,11 +194,13 @@ button:hover{
 
     .container{
         width:95%;
+        max-width:none;
         padding:25px;
     }
 
     .result-card{
         width:95%;
+        padding: 25px;
     }
 
     .stats{
@@ -209,9 +211,11 @@ button:hover{
     display:flex;
     justify-content:space-between;
     align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
 
     padding:15px;
-    margin:10px 0;
+    margin: auto;
 
     background:white;
 

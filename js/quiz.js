@@ -153,7 +153,10 @@ answer: 0
 ];
 
 let currentQuestion = 0;
-let score = 0;
+let score = 0; 
+
+let timer;
+let timeLeft = 7; // 7 seconds per question
 
 document
 .getElementById("startBtn")
@@ -172,7 +175,41 @@ function startQuiz() {
     loadQuestion();
 }
 
+function startTimer() {
+
+    clearInterval(timer);
+
+    timeLeft = 7;
+
+    document.getElementById("timer").innerText =
+        `⏰ ${timeLeft}s`;
+
+    timer = setInterval(() => {
+
+        timeLeft--;
+
+        document.getElementById("timer").innerText =
+            `⏰ ${timeLeft}s`;
+
+        if (timeLeft <= 0) {
+
+            clearInterval(timer);
+
+            currentQuestion++;
+
+            if (currentQuestion < questions.length) {
+                loadQuestion();
+            } else {
+                finishQuiz();
+            }
+        }
+
+    }, 1000);
+}
+
 function loadQuestion() {
+
+    startTimer();
 
     document.getElementById("question").innerHTML =
     `<h3>Question ${currentQuestion + 1} of ${questions.length}</h3>
